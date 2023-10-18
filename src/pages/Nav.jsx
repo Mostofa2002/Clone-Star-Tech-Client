@@ -21,15 +21,19 @@ const Nav = () => {
               </NavLink>
               <NavLink to="/productAdd">
                 <li className="text-xl font-semibold">
-                  <a>Product Add</a>
+                  <a>Add Product</a>
                 </li>
               </NavLink>
-              <li className="text-xl font-semibold">
-                <a>Support</a>
-              </li>
-              <li className="text-xl font-semibold">
-                <a>Live Batch</a>
-              </li>
+              <NavLink to="/myCart">
+                <li className="text-xl font-semibold">
+                  <a>My Cart</a>
+                </li>
+              </NavLink>
+              <NavLink to="/login">
+                <li className="text-xl font-semibold">
+                  <a>Login</a>
+                </li>
+              </NavLink>
             </ul>
           </div>
           <h1>
@@ -45,15 +49,19 @@ const Nav = () => {
             </NavLink>
             <NavLink to="/productAdd">
               <li className="text-xl font-semibold">
-                <a>Product Add</a>
+                <a>Add Product</a>
               </li>
             </NavLink>
-            <li className="text-xl font-semibold">
-              <a>Support</a>
-            </li>
-            <li className="text-xl font-semibold">
-              <a>Live Batch</a>
-            </li>
+            <NavLink to="/myCart">
+              <li className="text-xl font-semibold">
+                <a>My Cart</a>
+              </li>
+            </NavLink>
+            <NavLink to="/login">
+              <li className="text-xl font-semibold">
+                <a>Login</a>
+              </li>
+            </NavLink>
           </ul>
         </div>
         <div className="navbar-end">

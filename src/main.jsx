@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import BrandProduct from "./pages/Brand/BrandProduct";
 import ProductAdd from "./pages/ProductAdd/ProductAdd";
 import "./index.css";
+import Login from "./pages/Login/Login";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/brandProduct/:id",
         element: <BrandProduct />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
     ],
   },
