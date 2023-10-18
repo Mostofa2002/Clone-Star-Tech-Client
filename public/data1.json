@@ -1,0 +1,39 @@
+[
+  {
+    "id": 1,
+
+    "drone": "https://cdn-icons-png.flaticon.com/512/6232/6232383.png",
+    "titile": "Drone"
+  },
+  {
+    "id": 2,
+
+    "drone": "https://static-00.iconduck.com/assets.00/camera-icon-1024x832-h0gkd0hw.png",
+    "titile": "Camera"
+  },
+  {
+    "id": 3,
+
+    "drone": "https://img.lovepik.com/element/40152/2893.png_1200.png",
+    "titile": "Phone"
+  },
+
+  {
+    "id": 4,
+
+    "drone": "https://cdn-icons-png.flaticon.com/512/1089/1089003.png",
+    "titile": "Gpu"
+  },
+  {
+    "id": 5,
+
+    "drone": "https://cdn-icons-png.flaticon.com/512/394/394238.png",
+    "titile": "Earphone"
+  },
+  {
+    "id": 6,
+
+    "drone": "https://cdn-icons-png.flaticon.com/512/2482/2482264.png",
+    "titile": "Laptop"
+  }
+]
