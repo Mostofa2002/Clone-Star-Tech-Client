@@ -8,10 +8,12 @@ import ProductAdd from "./pages/ProductAdd/ProductAdd";
 import "./index.css";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
+import ErrorPage from "./pages/Error/ErrorPage";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",

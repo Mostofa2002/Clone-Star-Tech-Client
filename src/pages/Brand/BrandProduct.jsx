@@ -1,12 +1,15 @@
 import { useLoaderData } from "react-router-dom";
 
 import SpecificBrand from "./SpecificBrand";
+import NoData from "../Error/NoData";
 
 const BrandProduct = () => {
   const BrandSpecificData = useLoaderData();
 
   console.log(BrandSpecificData);
-
+  if (BrandSpecificData.length == 0) {
+    return <NoData />;
+  }
   return (
     <div>
       <h1 className="lg:text-7xl  text-4xl font-black text-blue-600 mt-20 text-center">

@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 const ProductAdd = () => {
   const [selectedOption, setSelectedOption] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("");
-  const Product = ["Phone", "Earphone", "Gpu", "Cpu", "Camera"];
+  const Product = ["Phone", "MotherBoard", "Gpu", "Cpu", "Camera"];
   const AddOption = (event) => {
     setSelectedOption(event.target.value);
   };
