@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const ProductAdd = () => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -8,11 +9,11 @@ const ProductAdd = () => {
     setSelectedOption(event.target.value);
   };
 
-  const Brand = ["MSI", "INTEl", "APPLE", "SAMSUNG", "SONY", "GIGABITE"];
+  const Brand = ["ASUS", "INTEl", "APPLE", "SAMSUNG", "SONY", "GIGABITE"];
   const AddBrand = (event) => {
     setSelectedBrand(event.target.value);
   };
-  const HandelAddContent = (event) => {
+  const HandelAddProduct = (event) => {
     event.preventDefault();
     const from = event.target;
     const name = from.name.value;
@@ -22,12 +23,30 @@ const ProductAdd = () => {
     const price = from.price.value;
     const rating = from.rating.value;
     const photo = from.photo.value;
-    const logo = from.logo.value;
 
-    const addContent =
-      { name, description, brand, type, price, rating, photo, logo } || {};
-    console.log(addContent);
+    const addProduct =
+      { name, description, brand, type, price, rating, photo } || {};
+    console.log(addProduct);
+
+    // form to database
+    fetch("http://localhost:5000/product", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(addProduct),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            icon: "success",
+            title: "SuccessFull",
+            text: "Product added successfully",
+            confirmButtonText: "Ok",
+          });
+        }
+      });
   };
+
   return (
     <div>
       <div className="mt-8 container mx-auto py-10">
@@ -36,7 +55,7 @@ const ProductAdd = () => {
             Add Your Favorite Product To Enjoy More
           </h1>
 
-          <form onSubmit={HandelAddContent} className="mt-6">
+          <form onSubmit={HandelAddProduct} className="mt-6">
             <div className="flex gap-1">
               {/* product name */}
               <div className="flex-1 form-control ">
@@ -131,18 +150,7 @@ const ProductAdd = () => {
                 />
               </div>
             </div>
-            {/* brand logo */}
-            <div className="flex-1  form-control ">
-              <label className="block mb-2 text-xl font-bold text-black dark:text-gray-200">
-                Brand Logo
-              </label>
-              <input
-                name="logo"
-                type="text"
-                placeholder="Brand Logo"
-                className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-red-50te border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-red-400 dark:focus:border-red-400 focus:ring-red-400 focus:outline-none focus:ring focus:ring-opacity-40"
-              />
-            </div>
+
             {/* photo url */}
             <div className="flex-1 form-control">
               <label className="block mb-2 text-xl font-bold text-black dark:text-gray-200">

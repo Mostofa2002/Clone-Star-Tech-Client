@@ -2,44 +2,32 @@
   {
     "id": 1,
     "brandImage": "https://i.ibb.co/9HSSsqp/logo-classicblue-3000px-One-Trust.png",
-    "brandName": "Intel",
-    "drone": "https://cdn-icons-png.flaticon.com/512/1830/1830867.png",
-    "titile": "Drone"
+    "brandName": "Intel"
   },
   {
     "id": 2,
     "brandImage": "https://logos-world.net/wp-content/uploads/2020/11/Gigabyte-Emblem.png",
-    "brandName": "Gigabyte",
-    "drone": "https://cdn-icons-png.flaticon.com/512/1830/1830867.png",
-    "titile": "Drone"
+    "brandName": "Gigabyte"
   },
   {
     "id": 3,
     "brandImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/AsusTek-black-logo.png/1200px-AsusTek-black-logo.png",
-    "brandName": "Asus",
-    "drone": "https://cdn-icons-png.flaticon.com/512/1830/1830867.png",
-    "titile": "Drone"
+    "brandName": "ASUS"
   },
 
   {
     "id": 4,
     "brandImage": "https://i.ibb.co/wrbd5b3/1024px-Samsung-Logo-svg.png",
-    "brandName": "Samsung",
-    "drone": "https://cdn-icons-png.flaticon.com/512/1830/1830867.png",
-    "titile": "Drone"
+    "brandName": "Samsung"
   },
   {
     "id": 5,
     "brandImage": "https://cdn.cookielaw.org/logos/ae4501a4-318f-4210-bddc-9a8bc984c5a6/9b902993-df99-460c-9093-0c699dafdb47/759393f9-2172-417c-ae87-f45709d38277/sony_logo_blue_RGB.png",
-    "brandName": "Sony",
-    "drone": "https://cdn-icons-png.flaticon.com/512/1830/1830867.png",
-    "titile": "Drone"
+    "brandName": "Sony"
   },
   {
     "id": 6,
     "brandImage": "https://1000logos.net/wp-content/uploads/2016/10/Apple-Logo.png",
-    "brandName": "Apple",
-    "drone": "https://cdn-icons-png.flaticon.com/512/1830/1830867.png",
-    "titile": "Drone"
+    "brandName": "Apple"
   }
 ]

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Login = () => {
   return (
     <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl">
@@ -43,19 +45,6 @@ const Login = () => {
           </span>
         </a>
 
-        <div className="flex items-center justify-between mt-4">
-          <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/4"></span>
-
-          <a
-            href="#"
-            className="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline"
-          >
-            or login with email
-          </a>
-
-          <span className="w-1/5 border-b dark:border-gray-400 lg:w-1/4"></span>
-        </div>
-
         <div className="mt-4">
           <label
             className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
@@ -98,19 +87,18 @@ const Login = () => {
             Sign In
           </button>
         </div>
-
-        <div className="flex items-center justify-between mt-4">
-          <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
-
-          <a
-            href="#"
-            className="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline"
-          >
-            or sign up
-          </a>
-
-          <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
-        </div>
+        <Link to="/register">
+          <div className="flex items-center justify-between mt-4">
+            <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
+            <a
+              href="#"
+              className="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline"
+            >
+              or sign up
+            </a>
+            <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
+          </div>
+        </Link>
       </div>
     </div>
   );
