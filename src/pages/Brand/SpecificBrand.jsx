@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
 const SpecificBrand = ({ items }) => {
-  const { photo, name, price, brand, rating, type } = items || {};
+  const { photo, name, price, brand, rating, type, _id } = items || {};
+
   return (
     <div className="card lg:w-[500px] h-[690px] rounded-xl  shadow-xl">
       <div className="text-center rounded-t-xl  py-3 bg-blue-500">
@@ -27,7 +28,11 @@ const SpecificBrand = ({ items }) => {
           Product Rating: {rating}
         </h2>
         <div className="flex justify-center items-center md:gap-12 gap-1 lg:gap-28 mt-10">
-          <button className="btn bg-blue-500 text-white ">View Details</button>
+          <Link to={`/addCart/${_id}`}>
+            <button className="btn bg-blue-500 text-white ">
+              View Details
+            </button>
+          </Link>
           <Link to="/update">
             <button className="btn bg-sky-600 text-white">
               Update Content

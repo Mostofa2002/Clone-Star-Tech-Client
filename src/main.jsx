@@ -9,6 +9,9 @@ import "./index.css";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import ErrorPage from "./pages/Error/ErrorPage";
+import AddCart from "./pages/AddCart/AddCart";
+import AuthProvider from "./AuthProvider/AuthProvider";
+import { ToastContainer } from "react-toastify";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,12 +41,19 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+      {
+        path: "/addCart/:id",
+        element: <AddCart />,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <ToastContainer />
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

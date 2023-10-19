@@ -2,16 +2,19 @@ import { useLoaderData } from "react-router-dom";
 
 import SpecificBrand from "./SpecificBrand";
 import NoData from "../Error/NoData";
+import Slider from "./Slider";
 
 const BrandProduct = () => {
   const BrandSpecificData = useLoaderData();
 
-  console.log(BrandSpecificData);
   if (BrandSpecificData.length == 0) {
     return <NoData />;
   }
   return (
     <div>
+      <div className="mx-[300px]">
+        <Slider />
+      </div>
       <h1 className="lg:text-7xl  text-4xl font-black text-blue-600 mt-20 text-center">
         All Available Product
       </h1>

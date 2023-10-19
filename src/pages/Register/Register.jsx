@@ -1,154 +1,137 @@
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+import { updateProfile } from "firebase/auth";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const HandleRegister = (e) => {
+    e.preventDefault();
+    setPassword("");
+    const form = new FormData(e.currentTarget);
+
+    const email = form.get("email");
+    const password = form.get("password");
+    const name = form.get("name");
+    const photo = form.get("photo");
+    console.log(email, password, name);
+
+    if (password.length < 6) {
+      setPassword("password must be at least 6 characters");
+      return;
+    } else if (!/[A-Z]/.test(password) || !/[!@#$%^&*]/.test(password)) {
+      setPassword(
+        "password must be at least special characters and capital latter"
+      );
+      return;
+    }
+    createUser(email, password)
+      .then((result) => {
+        updateProfile(result.user, {
+          displayName: name,
+          photoURL: photo,
+        });
+
+        toast.success('🦄you have successfully registered")', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        console.log(result.user);
+
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+
   return (
-    <section className="bg-white dark:bg-gray-900">
-      <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
-        <form className="w-full max-w-md">
-          <div className="flex justify-center mx-auto">
-            <h1 className="font-bold text-5xl">SignUp!</h1>
-          </div>
-
-          <div className="relative flex items-center mt-8">
-            <span className="absolute">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                />
-              </svg>
-            </span>
-            <input
-              type="text"
-              className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              placeholder="Username"
-            />
-          </div>
-
-          <div className="relative flex items-center mt-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-6 h-6 text-gray-300 dark:text-gray-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+    <div className="hero min-h-screen  ">
+      <div className="hero-content flex-col ">
+        <div className="text-center ">
+          <h1 className="text-5xl font-bold">Register Now!</h1>
+        </div>
+        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <form onSubmit={HandleRegister} className="card-body">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="name"
+                placeholder="name"
+                name="name"
+                className="input input-bordered"
+                required
               />
-            </svg>
-
-            <input
-              id="dropzone-file"
-              type="text"
-              className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              placeholder="Profile Photo"
-            />
-          </div>
-
-          <div className="relative flex items-center mt-6">
-            <span className="absolute">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              </svg>
-            </span>
-
-            <input
-              type="email"
-              className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              placeholder="Email address"
-            />
-          </div>
-
-          <div className="relative flex items-center mt-4">
-            <span className="absolute">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                />
-              </svg>
-            </span>
-
-            <input
-              type="password"
-              className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              placeholder="Password"
-            />
-          </div>
-
-          <div className="relative flex items-center mt-4">
-            <span className="absolute">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                />
-              </svg>
-            </span>
-            <input
-              type="password"
-              className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-lg dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-              placeholder="Confirm Password"
-            />
-          </div>
-
-          <div className="mt-6">
-            <button className="w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-              Sign Up
-            </button>
-            <Link to="/login">
-              <div className="mt-6 text-center ">
-                <a
-                  href="#"
-                  className="text-sm text-blue-500 hover:underline dark:text-blue-400"
-                >
-                  Already have an account?
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">photo Url</span>
+              </label>
+              <input
+                type="text"
+                placeholder="url"
+                name="photo"
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Email</span>
+              </label>
+              <input
+                type="email"
+                placeholder="email"
+                className="input input-bordered"
+                name="email"
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Password</span>
+              </label>
+              <input
+                type="password"
+                placeholder="password"
+                className="input input-bordered"
+                name="password"
+                required
+              />
+              <label className="label">
+                <a href="#" className="label-text-alt link link-hover">
+                  Forgot password?
                 </a>
-              </div>
-            </Link>
-          </div>
-        </form>
+              </label>
+              {password && <p className="text-red-400"> {password}</p>}
+            </div>
+            <div className="form-control mt-6">
+              <button className="btn btn-primary">Register</button>
+            </div>
+            <div className="flex gap-5 items-center">
+              <p>Already have an account?</p>
+              <Link className="text-lg font-extrabold" to="/Login">
+                Login Now
+              </Link>
+            </div>
+          </form>
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
