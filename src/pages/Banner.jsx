@@ -1,14 +1,14 @@
 const Banner = () => {
   return (
-    <div className="lg:flex">
+    <div className="lg:flex dark:bg-gray-800 lg:mr-36 mt-10">
       <div className="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-1/2">
         <div className="max-w-xl">
-          <h2 className="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">
+          <h2 className="text-3xl font-semibold  dark:text-white lg:text-4xl">
             Buy Your New{" "}
             <span className="text-blue-600 dark:text-blue-400">Products</span>
           </h2>
 
-          <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 lg:text-base">
+          <p className="mt-4 text-sm dark:text-white  lg:text-base">
             Star Tech is the most popular Laptop Brand Shop in BD. Star Tech
             Laptop Shop has the perfect device, whether you are a freelancer,
             office goer, or student. Gamers love our collection of Gaming
@@ -32,8 +32,12 @@ const Banner = () => {
         </div>
       </div>
 
-      <div className="w-full h-64 lg:w-1/2 lg:h-auto">
-        <img src="https://i.ibb.co/c2bw5kB/Rise-of-Star-Tech-1-1.webp" alt="" />
+      <div className="w-full h-64 lg:w-1/2 lg:h-auto ">
+        <img
+          className="rounded-xl"
+          src="https://i.ibb.co/c2bw5kB/Rise-of-Star-Tech-1-1.webp"
+          alt=""
+        />
       </div>
     </div>
   );

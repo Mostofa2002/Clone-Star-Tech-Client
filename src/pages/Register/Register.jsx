@@ -58,7 +58,7 @@ const Register = () => {
   };
 
   return (
-    <div className="hero min-h-screen  ">
+    <div className="hero min-h-screen dark:text-gray-100  ">
       <div className="hero-content flex-col ">
         <div className="text-center ">
           <h1 className="text-5xl font-bold">Register Now!</h1>
@@ -122,7 +122,7 @@ const Register = () => {
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register</button>
             </div>
-            <div className="flex gap-5 items-center">
+            <div className="flex gap-5 items-center  text-black ">
               <p>Already have an account?</p>
               <Link className="text-lg font-extrabold" to="/Login">
                 Login Now

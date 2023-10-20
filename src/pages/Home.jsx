@@ -7,7 +7,7 @@ import Contact from "./HomeSection/Contact";
 const Home = () => {
   const data = useLoaderData();
   return (
-    <div>
+    <div className="dark:bg-gray-800">
       <Banner />
       <Brand data={data} />
       <FeatureCate />

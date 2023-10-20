@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const ProductAdd = () => {
+const Update = () => {
   const [selectedOption, setSelectedOption] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("");
   const Product = ["Phone", "MotherBoard", "Gpu", "Cpu", "Camera"];
@@ -13,8 +14,13 @@ const ProductAdd = () => {
   const AddBrand = (event) => {
     setSelectedBrand(event.target.value);
   };
-  const HandelAddProduct = (event) => {
+  const data = useLoaderData();
+
+  const { name, description, brand, type, price, rating, photo, _id } = data;
+
+  const HandelUpdateProduct = (event) => {
     event.preventDefault();
+
     const from = event.target;
     const name = from.name.value;
     const description = from.description.value;
@@ -24,41 +30,47 @@ const ProductAdd = () => {
     const rating = from.rating.value;
     const photo = from.photo.value;
 
-    const addProduct =
-      { name, description, brand, type, price, rating, photo } || {};
-    console.log(addProduct);
+    const UpdateProduct = {
+      name,
+      description,
+      brand,
+      type,
+      price,
+      rating,
+      photo,
+    };
+    console.log(UpdateProduct);
 
     // form to database
     fetch(
-      " https://server-side-oha3y55br-mostofa-tajs-projects.vercel.app/product",
+      ` https://server-side-oha3y55br-mostofa-tajs-projects.vercel.app/update/${_id}`,
       {
-        method: "POST",
+        method: "PUT",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify(addProduct),
+        body: JSON.stringify(UpdateProduct),
       }
     )
       .then((res) => res.json())
       .then((data) => {
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
             icon: "success",
             title: "SuccessFull",
-            text: "Product added successfully",
+            text: "Update Product  successfully",
             confirmButtonText: "Ok",
           });
         }
       });
   };
-
   return (
     <div>
       <div className="mt-8 container mx-auto py-10">
         <div className="w-full px-8 py-10 mx-auto overflow-hidden bg-blue-600 rounded-xl shadow-2xl  lg:max-w-5xl shadow-gray-300/50 ">
           <h1 className="text-4xl font-bold text-center  text-white">
-            Add Your Favorite Product To Enjoy More
+            Update Your Favorite Product & To Enjoy More
           </h1>
 
-          <form onSubmit={HandelAddProduct} className="mt-6">
+          <form onSubmit={HandelUpdateProduct} className="mt-6">
             <div className="flex gap-1">
               {/* product name */}
               <div className="flex-1 form-control ">
@@ -66,6 +78,7 @@ const ProductAdd = () => {
                   Product Name
                 </label>
                 <input
+                  defaultValue={name}
                   name="name"
                   type="text"
                   placeholder="Enter Product Name"
@@ -78,6 +91,7 @@ const ProductAdd = () => {
                   Choose The Brand
                 </label>
                 <input
+                  defaultValue={brand}
                   name="brand"
                   type="text"
                   value={selectedBrand}
@@ -100,6 +114,7 @@ const ProductAdd = () => {
                   Product Type
                 </label>
                 <input
+                  defaultValue={type}
                   name="type"
                   type="text"
                   value={selectedOption}
@@ -120,6 +135,7 @@ const ProductAdd = () => {
                   Product Price
                 </label>
                 <input
+                  defaultValue={price}
                   name="price"
                   type="text"
                   placeholder="Enter Product Price"
@@ -134,6 +150,7 @@ const ProductAdd = () => {
                   Short Description
                 </label>
                 <input
+                  defaultValue={description}
                   name="description"
                   type="text"
                   placeholder="Enter Short Description Of Product"
@@ -146,6 +163,7 @@ const ProductAdd = () => {
                   Rating
                 </label>
                 <input
+                  defaultValue={rating}
                   name="rating"
                   type="text"
                   placeholder="Enter  Rating"
@@ -160,6 +178,7 @@ const ProductAdd = () => {
                 Product Image
               </label>
               <input
+                defaultValue={photo}
                 name="photo"
                 type="text"
                 placeholder="Enter Product Image URL"
@@ -170,7 +189,7 @@ const ProductAdd = () => {
               <input
                 className=" px-6 py-3 mt-6 text-lg font-bold hover:bg-black text-white btn bg-blue-600"
                 type="submit"
-                value="Add Product"
+                value="Update Product"
               />
             </div>
           </form>
@@ -180,4 +199,4 @@ const ProductAdd = () => {
   );
 };
 
-export default ProductAdd;
+export default Update;

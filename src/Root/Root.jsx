@@ -4,7 +4,7 @@ import Footer from "../pages/Footer";
 
 const Root = () => {
   return (
-    <div className="container mx-auto">
+    <div className="dark:bg-gray-800">
       <Nav />
       <Outlet />
       <Footer />

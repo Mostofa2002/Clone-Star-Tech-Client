@@ -69,7 +69,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="hero min-h-screen mb-10 ">
+    <div className="hero min-h-screen mb-10 dark:text-white  ">
       <div className="hero-content flex-col ">
         <div className="text-center ">
           <h1 className="text-5xl font-bold">Login Here!</h1>
@@ -107,18 +107,18 @@ const Login = () => {
               {error && <p className="text-red-500 font-bold"> {error}</p>}
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
+              <button className="btn bg-blue-400 text-white">Login</button>
 
               <div className="py-3  flex justify-end">
                 <button
                   onClick={handleGoogle}
-                  className="btn btn-outline w-1/2  py-3"
+                  className="btn btn-outline w-full  py-3"
                 >
                   <i className="fa-brands fa-google"></i>Google
                 </button>
               </div>
             </div>
-            <div className="flex gap-5 items-center">
+            <div className="flex gap-5 items-center text-black ">
               <p>New to here?</p>
               <Link className="text-lg font-bold" to="/Register">
                 Please Register

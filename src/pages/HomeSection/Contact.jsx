@@ -1,6 +1,6 @@
 const Contact = () => {
   return (
-    <section className="min-h-screen bg-white dark:bg-gray-900">
+    <section className="min-h-screen bg-white dark:bg-gray-800">
       <div className="container px-6 py-10 mx-auto">
         <div className="lg:flex lg:items-center lg:-mx-10">
           <div className="lg:w-1/2 lg:mx-10">
@@ -8,20 +8,19 @@ const Contact = () => {
               Let’s talk
             </h1>
 
-            <p className="mt-4 text-gray-500 dark:text-gray-400">
+            <p className="mt-4 text-gray-500 dark:text-white">
               Ask us everything and we would love to hear from you
             </p>
 
             <form className="mt-12">
               <div className="-mx-2 md:items-center md:flex">
                 <div className="flex-1 px-2">
-                  <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
+                  <label className="block mb-2 text-sm text-gray-600 dark:text-white">
                     Full Name
                   </label>
                   <input
                     type="text"
-                    placeholder="John Doe"
-                    className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                    className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md  dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                   />
                 </div>
 
@@ -31,18 +30,17 @@ const Contact = () => {
                   </label>
                   <input
                     type="email"
-                    placeholder="johndoe@example.com"
-                    className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                    className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md  dark:bg-gray-800 dark:text-white dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                   />
                 </div>
               </div>
 
               <div className="w-full mt-4">
-                <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
+                <label className="block mb-2 text-sm dark:text-white ">
                   Message
                 </label>
                 <textarea
-                  className="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-56 dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                  className="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-56 dark:placeholder-text-white dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                   placeholder="Message"
                 ></textarea>
               </div>

@@ -12,6 +12,9 @@ import ErrorPage from "./pages/Error/ErrorPage";
 import AddCart from "./pages/AddCart/AddCart";
 import AuthProvider from "./AuthProvider/AuthProvider";
 import { ToastContainer } from "react-toastify";
+import MyCart from "./pages/MyCart/MyCart";
+import PrivateRoute from "./private/privateRoute";
+import Update from "./pages/Update/Update";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,13 +28,31 @@ const router = createBrowserRouter([
       },
       {
         path: "/productAdd",
-        element: <ProductAdd />,
+        element: (
+          <PrivateRoute>
+            <ProductAdd />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <PrivateRoute>
+            <Update />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            ` https://server-side-oha3y55br-mostofa-tajs-projects.vercel.app/update/${params.id}`
+          ),
       },
       {
         path: "/brandProduct/:brand",
         element: <BrandProduct></BrandProduct>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/${params?.brand}`),
+          fetch(
+            ` https://server-side-oha3y55br-mostofa-tajs-projects.vercel.app/product/${params?.brand}`
+          ),
       },
       {
         path: "/login",
@@ -42,8 +63,24 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
+        path: "/myCart",
+        element: (
+          <PrivateRoute>
+            <MyCart />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/addCart/:id",
-        element: <AddCart />,
+        element: (
+          <PrivateRoute>
+            <AddCart />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            ` https://server-side-oha3y55br-mostofa-tajs-projects.vercel.app/productS/${params.id}`
+          ),
       },
     ],
   },

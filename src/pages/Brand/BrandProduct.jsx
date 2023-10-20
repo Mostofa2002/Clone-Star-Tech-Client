@@ -12,7 +12,7 @@ const BrandProduct = () => {
   }
   return (
     <div>
-      <div className="mx-[300px]">
+      <div className="lg:mx-[500px]">
         <Slider />
       </div>
       <h1 className="lg:text-7xl  text-4xl font-black text-blue-600 mt-20 text-center">
