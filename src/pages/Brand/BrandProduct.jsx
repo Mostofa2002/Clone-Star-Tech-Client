@@ -15,7 +15,7 @@ const BrandProduct = () => {
       <div className="lg:mx-[500px]">
         <Slider />
       </div>
-      <h1 className="lg:text-7xl  text-4xl font-black text-blue-600 mt-20 text-center">
+      <h1 className="lg:text-7xl  text-3xl font-black text-blue-600 mt-20 text-center">
         All Available Product
       </h1>
       <div className="grid lg:grid-cols-2  grid-cols-1 lg:ml-36  gap-y-16 my-20">

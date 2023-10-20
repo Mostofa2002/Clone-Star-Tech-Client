@@ -1,19 +1,7 @@
-import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Update = () => {
-  const [selectedOption, setSelectedOption] = useState("");
-  const [selectedBrand, setSelectedBrand] = useState("");
-  const Product = ["Phone", "MotherBoard", "Gpu", "Cpu", "Camera"];
-  const AddOption = (event) => {
-    setSelectedOption(event.target.value);
-  };
-
-  const Brand = ["ASUS", "INTEL", "APPLE", "SAMSUNG", "SONY", "GIGABITE"];
-  const AddBrand = (event) => {
-    setSelectedBrand(event.target.value);
-  };
   const data = useLoaderData();
 
   const { name, description, brand, type, price, rating, photo, _id } = data;
@@ -94,17 +82,10 @@ const Update = () => {
                   defaultValue={brand}
                   name="brand"
                   type="text"
-                  value={selectedBrand}
-                  onChange={AddBrand}
                   list="Brand"
                   placeholder="Select Brand"
                   className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-blue-50te border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
-                <datalist id="Brand">
-                  {Brand.map((ser, i) => (
-                    <option key={i} value={ser} />
-                  ))}
-                </datalist>
               </div>
             </div>
             <div className="flex gap-1">
@@ -117,17 +98,10 @@ const Update = () => {
                   defaultValue={type}
                   name="type"
                   type="text"
-                  value={selectedOption}
-                  onChange={AddOption}
                   list="Product"
                   placeholder="Select Product Type"
                   className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-blue-50te border border-gray-200 rounded-md dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
-                <datalist id="Product">
-                  {Product.map((ser, i) => (
-                    <option key={i} value={ser} />
-                  ))}
-                </datalist>
               </div>
               {/* Product price */}
               <div className="flex-1  form-control ">
