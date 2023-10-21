@@ -4,7 +4,7 @@
 
 ## Client Side
 
-## [ Project Live Demo](https://brand-product-d7651.firebaseapp.com/?_gl=1*1vbf0t3*_ga*MTgxMDUxODY1Ny4xNjk3ODg1MTA2*_ga_CW55HF8NVT*MTY5NzkwMTYyNS40LjAuMTY5NzkwMTYyNS42MC4wLjA.)
+## [ Project Live Demo](https://brand-product-d7651.web.app/)
 
 ## Server Side
 

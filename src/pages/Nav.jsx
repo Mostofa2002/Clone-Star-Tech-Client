@@ -133,12 +133,16 @@ const Nav = () => {
                     Create Account
                   </button>
                 </Link>
-                <button
-                  onClick={handleLogOut}
-                  className="block px-4 py-3 text-[15px] text-black  hover:bg-blue-300/70 rounded-xl mt-1"
-                >
-                  Sign Out
-                </button>
+                {user ? (
+                  <button
+                    onClick={handleLogOut}
+                    className="block px-4 py-3 text-[15px] text-black  hover:bg-blue-300/70 rounded-xl mt-1"
+                  >
+                    Sign Out
+                  </button>
+                ) : (
+                  ""
+                )}
               </div>
             </ul>
           </div>
