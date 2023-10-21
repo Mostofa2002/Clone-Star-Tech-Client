@@ -4,7 +4,7 @@
 
 ## Client Side
 
-## [ Project Live Demo](https://brand-product-d7651.web.app/)
+## [ Project Live Demo](brand-product-d7651.firebaseapp.com)
 
 ## Server Side
 
