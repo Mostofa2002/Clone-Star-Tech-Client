@@ -76,7 +76,7 @@ const Update = () => {
               {/* choose the brand */}
               <div className="flex-1  form-control ">
                 <label className="block mb-2 text-xl font-bold text-white dark:text-gray-200">
-                  Choose The Brand
+                  Brand Name
                 </label>
                 <input
                   defaultValue={brand}
